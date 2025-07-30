@@ -1,0 +1,185 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f4f8;
+    color: #333;
+  }
+  
+  .navbar {
+    background-color: #0e639c;
+    padding: 15px 30px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  
+  .logo {
+    color: white;
+    font-size: 1.6rem;
+    font-weight: bold;
+  }
+  
+  .navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  .navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .container {
+    max-width: 700px;
+    margin: 100px auto 30px auto; /* Added top margin to avoid hiding under navbar */
+    padding: 20px;
+  }
+  
+  
+  .page {
+    display: none;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+  }
+  
+  .page.active {
+    display: block;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  input, select {
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+  }
+  
+  button {
+    padding: 12px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  
+ 
+video#preview {
+  border: 2px solid #0e639c;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+  .primary-btn {
+    background-color: #0e639c;
+    color: white;
+  }
+  
+  .danger-btn {
+    background-color: #e63946;
+    color: white;
+  }
+  
+  .ticket-box {
+    margin-top: 20px;
+    background: #f6fafd;
+    border: 1px solid #0e639c;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .highlight {
+    font-weight: bold;
+    color: #e63946;
+  }
+  
+  .rates {
+    margin-top: 15px;
+    padding-left: 20px;
+    line-height: 1.6;
+  }
+  
+  canvas#qrcode {
+    margin-top: 15px;
+    width: 150px;
+  }
+  .home-desc {
+    background: #eaf6ff;
+    border: 1px solid #0e639c;
+    padding: 15px;
+    border-radius: 10px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .page {
+    text-align: center;
+  }
+  .desc-text {
+    font-size: 1rem;
+    margin: 20px 0;
+    line-height: 1.8;
+    color: #444;
+    padding: 10px 15px;
+    border-left: 4px solid #0e639c;
+    background: #eef6fb;
+    border-radius: 6px;
+  }
+  .batch-box {
+    border: 1px solid #0e639c;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background: #f0f8ff;
+  }
+  .fixed-summary {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #0e639c;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    z-index: 1000;
+  }
+  #adminSummary .ticket-box:last-child {
+    background-color: #e6fff2;
+    font-weight: bold;
+    border-top: 2px solid green;
+  }
+  .fixed-total-box {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #0e639c;
+    color: white;
+    padding: 12px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  }
+  
+  
+  
+  
+  

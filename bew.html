@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>🚗 ABC Smart Parking</title>
+  <link rel="stylesheet" href="neee.css" />
+  <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+</head>
+<body>
+  <!-- 🌐 Navigation Bar -->
+  <nav class="navbar" id="navbar">
+    <h2 class="logo">🚗 ABC Parking</h2>
+    <ul>
+      <li><a href="#" onclick="showPage('register')">Register</a></li>
+      <li><a href="#" onclick="showPage('login')">Login</a></li>
+      <li><a href="#" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" onclick="showPage('booking')">Booking</a></li>
+      <li><a href="#" onclick="showPage('exit')">Exit</a></li>
+      <li><a href="#" onclick="showPage('history')">History</a></li>
+      
+      <li><a href="#" onclick="showPage('admin')">Admin</a></li>
+      <li><a href="#" onclick="logout()">Logout</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <!-- 🔐 Register Page -->
+    <section id="register" class="page active">
+      <h2>Register</h2>
+      <form id="registerForm">
+        <input type="text" id="regUsername" placeholder="Username" required pattern="[A-Za-z\s]+" title="Only letters allowed" />
+        <input type="email" id="regEmail" placeholder="Email" required />
+        <input type="password" id="regPassword" placeholder="Password" required />
+        <button type="submit" class="primary-btn">Register</button>
+      </form>
+    </section>
+
+    <!-- 🔐 Login Page -->
+    <section id="login" class="page">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="text" id="loginUsername" placeholder="Username" required />
+        <input type="password" id="loginPassword" placeholder="Password" required />
+        <button type="submit" class="primary-btn">Login</button>
+      </form>
+    </section>
+
+    <section id="home" class="page">
+      <h2>Welcome <span id="displayUser"></span> 👋</h2>
+    
+      <p class="desc-text">
+        Welcome to <strong>ABC Smart Parking</strong> — a smarter way to park your vehicle.  
+        Our platform helps you easily find and reserve parking slots for <strong>Cars</strong>, <strong>Bikes</strong>, and <strong>Heavy Vehicles</strong> in real-time.  
+        Avoid the stress of searching for space and manage your entry, exit, and ticket history — all at your fingertips.  
+        Let's make your parking hassle-free and secure 🚗🚦
+      </p>
+    
+      <button id="toggleSlotsBtn" class="primary-btn" onclick="toggleSlots()">Show Available Slots</button>
+
+    
+      <div id="slots-result" class="rates" style="display:none;"></div>
+    </section>
+    
+    
+
+
+
+    <!-- 🅿 Booking Page -->
+    <section id="booking" class="page">
+      <h2>🅿 Book Your Slot</h2>
+      <form id="entryForm">
+        <input type="text" id="name" placeholder="Full Name" required pattern="[A-Za-z\s]+" />
+        <input type="text" id="vehiclenum" placeholder="Vehicle Number" required />
+        <select id="vehicletype">
+          <option value="car">🚗 Car</option>
+          <option value="bike">🏍 Bike</option>
+          <option value="heavy">🚚 Heavy Vehicle</option>
+        </select>
+        <input type="tel" id="phone" placeholder="Mobile Number" required pattern="\d{10}" />
+        <button type="submit" class="primary-btn">Generate Ticket</button>
+      </form>
+      <div id="ticket" class="ticket"></div>
+    </section>
+
+    <!-- 🚪 Exit Page -->
+    <section id="exit" class="page">
+      <h2>🚪 Exit Parking</h2>
+      <form id="exitForm">
+        <input type="text" id="ticketid" placeholder="Enter Ticket ID" required />
+        <button type="submit" class="danger-btn">Exit Now</button>
+      </form>
+      <p id="exitMsg"></p>
+    </section>
+
+    <!-- 📜 History Page -->
+    <section id="history" class="page">
+      <h2>📜 Parking History</h2>
+      <div id="historyList"></div>
+    </section>
+
+     
+    <!-- 📷 QR Code Scanner Page -->
+   <!-- <section id="qrscanner" class="page">
+      <h2>🎯 QR Code Ticket Scanner</h2>
+      <video id="preview" width="100%" height="300"></video>
+      <p id="scanResult" class="highlight"></p>
+    </section> -->
+
+   <!-- 📊 Admin Dashboard -->
+<section id="admin" class="page">
+  <h2>📊 Admin Dashboard</h2>
+  <button onclick="clearAdminAndHistory()" class="danger-btn">🧹 Clear History & Admin Data</button>
+
+  <div id="adminSummary" class="rates"></div>
+  <div id="totalRevenueFixed" style="
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0e639c;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+">
+  💰 Total Overall Revenue: <span id="totalRevenueBox">₹0</span>
+</div>
+
+  <div id="adminTotalRevenue" style="
+  position: fixed;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #0e639c;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: bold;
+  z-index: 999;">
+  💰 Total Overall Revenue: ₹0
+</div>
+
+
+</section>
+
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/instascan/1.0.0/instascan.min.js"></script>
+  <script src="omm.js"></script>
+</body>
+</html>
